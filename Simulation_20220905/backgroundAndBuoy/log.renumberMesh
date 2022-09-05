@@ -1,0 +1,56 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _7bdb509494-20201222 OPENFOAM=2012
+Arch   : "LSB;label=32;scalar=64"
+Exec   : renumberMesh -parallel -overwrite
+Date   : Aug 01 2022
+Time   : 23:49:42
+Host   : LAPTOP-LH2IO11Q
+PID    : 12508
+I/O    : uncollated
+Case   : /home/zhuyin/Charlene/backgroundAndBuoy
+nProcs : 4
+Hosts  :
+(
+    (LAPTOP-LH2IO11Q 4)
+)
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = constant
+
+Mesh size: 150
+Before renumbering :
+    band           : 9
+    profile        : 956
+
+Using default renumberMethod.
+
+Selecting renumberMethod CuthillMcKee
+
+
+Renumbering processor cell decomposition map cellProcAddressing
+Renumbering processor face decomposition map faceProcAddressing
+Renumbering processor point decomposition map pointProcAddressing
+After renumbering :
+    band           : 8
+    profile        : 864
+
+Writing mesh to "constant"
+End
+
+Finalising parallel run

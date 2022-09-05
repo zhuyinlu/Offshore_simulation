@@ -1,0 +1,42 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _7bdb509494-20201222 OPENFOAM=2012
+Arch   : "LSB;label=32;scalar=64"
+Exec   : setFields
+Date   : Sep 05 2022
+Time   : 10:06:14
+Host   : LAPTOP-LH2IO11Q
+PID    : 2511
+I/O    : uncollated
+Case   : /home/zhuyin/Simulation_20220905/backgroundAndBuoy
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading setFieldsDict
+
+Setting field default values
+    Setting internal values of volScalarField alpha.water
+    Setting internal values of volScalarField zoneID
+
+Setting field region values
+    Adding cells with centre within boxes 1((-100 -100 -100) (100 100 0))
+    Setting internal values of volScalarField alpha.water
+    Adding all elements of cellSet (c0)
+    Setting internal values of volScalarField zoneID
+    Adding all elements of cellSet (c1)
+    Setting internal values of volScalarField zoneID
+
+End
+

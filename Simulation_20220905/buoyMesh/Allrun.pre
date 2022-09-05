@@ -1,0 +1,36 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+
+##################################################################################
+############            BUOY IN WAVES TUTORIAL BY CFD-TRAINING        ############
+############                      www.cfd-training.com                ############
+############                   script for mesh generation             ############
+##################################################################################
+
+echo "----------> Create .foam file for paraview"
+touch buoyMesh.foam
+
+echo "----------> Create background mesh with blockMesh"
+blockMesh > log.blockMesh
+
+echo "----------> Decompose case on 4 cores"
+decomposePar -force > log.decomposePar
+
+echo "----------> Run snappyHexMesh on 4 cores"
+mpirun -np 4 snappyHexMesh -parallel -overwrite > log.snappyHexMesh
+
+echo "----------> Reconstruct mesh to /constant directory"
+reconstructParMesh -constant > log.reconstructParMesh
+
+echo "----------> Delete old directory created for meshing"
+rm -rf process*
+
+echo "----------> Extrude the mesh from top patch"
+extrudeMesh > log.extrudeMesh
+
+echo "----------> Create front and back pacthes"
+createPatch -overwrite > log.createPatch
+
+echo "----------> Run checkMesh for quality metric"
+checkMesh > log.checkMesh
+#------------------------------------------------------------------------------

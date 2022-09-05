@@ -1,0 +1,215 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _7bdb509494-20201222 OPENFOAM=2012
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar -force
+Date   : Sep 05 2022
+Time   : 10:05:22
+Host   : LAPTOP-LH2IO11Q
+PID    : 2485
+I/O    : uncollated
+Case   : /home/zhuyin/Simulation_20220905/backgroundAndBuoy
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh region0
+
+Removing 4 existing processor directories
+Create mesh
+
+Calculating distribution of cells
+Selecting decompositionMethod scotch [4]
+
+Finished decomposition in 0.01 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 37
+    Number of faces shared with processor 1 = 12
+    Number of faces shared with processor 2 = 15
+    Number of processor patches = 2
+    Number of processor faces = 27
+    Number of boundary faces = 53
+
+Processor 1
+    Number of cells = 38
+    Number of faces shared with processor 0 = 12
+    Number of processor patches = 1
+    Number of processor faces = 12
+    Number of boundary faces = 62
+
+Processor 2
+    Number of cells = 37
+    Number of faces shared with processor 0 = 15
+    Number of faces shared with processor 3 = 12
+    Number of processor patches = 2
+    Number of processor faces = 27
+    Number of boundary faces = 53
+
+Processor 3
+    Number of cells = 38
+    Number of faces shared with processor 2 = 12
+    Number of processor patches = 1
+    Number of processor faces = 12
+    Number of boundary faces = 62
+
+Number of processor faces = 39
+Max number of cells = 38 (1.333333% above average 37.5)
+Max number of processor patches = 2 (33.33333% above average 1.5)
+Max number of faces between processors = 27 (38.46154% above average 19.5)
+
+Time = 0
+--> FOAM Warning : 
+    From bool Foam::IOobject::readHeader(Foam::Istream&)
+    in file db/IOobject/IOobjectReadHeader.C at line 111
+    Reading "/home/zhuyin/Simulation_20220905/backgroundAndBuoy/constant/dynamicMeshDict:Zone.Identifier" at line 1
+    First token could not be read or is not the keyword 'FoamFile'
+
+Check header is of the form:
+
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       IOobject;
+    location    "constant";
+    object      dynamicMeshDict:Zone.Identifier;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+--> FOAM Warning : 
+    From bool Foam::IOobject::readHeader(Foam::Istream&)
+    in file db/IOobject/IOobjectReadHeader.C at line 111
+    Reading "/home/zhuyin/Simulation_20220905/backgroundAndBuoy/constant/g:Zone.Identifier" at line 1
+    First token could not be read or is not the keyword 'FoamFile'
+
+Check header is of the form:
+
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       IOobject;
+    location    "constant";
+    object      g:Zone.Identifier;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+--> FOAM Warning : 
+    From bool Foam::IOobject::readHeader(Foam::Istream&)
+    in file db/IOobject/IOobjectReadHeader.C at line 111
+    Reading "/home/zhuyin/Simulation_20220905/backgroundAndBuoy/constant/transportProperties:Zone.Identifier" at line 1
+    First token could not be read or is not the keyword 'FoamFile'
+
+Check header is of the form:
+
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       IOobject;
+    location    "constant";
+    object      transportProperties:Zone.Identifier;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+--> FOAM Warning : 
+    From bool Foam::IOobject::readHeader(Foam::Istream&)
+    in file db/IOobject/IOobjectReadHeader.C at line 111
+    Reading "/home/zhuyin/Simulation_20220905/backgroundAndBuoy/constant/turbulenceProperties:Zone.Identifier" at line 1
+    First token could not be read or is not the keyword 'FoamFile'
+
+Check header is of the form:
+
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       IOobject;
+    location    "constant";
+    object      turbulenceProperties:Zone.Identifier;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+--> FOAM Warning : 
+    From bool Foam::IOobject::readHeader(Foam::Istream&)
+    in file db/IOobject/IOobjectReadHeader.C at line 111
+    Reading "/home/zhuyin/Simulation_20220905/backgroundAndBuoy/constant/waveProperties:Zone.Identifier" at line 1
+    First token could not be read or is not the keyword 'FoamFile'
+
+Check header is of the form:
+
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       IOobject;
+    location    "constant";
+    object      waveProperties:Zone.Identifier;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+
+End
+

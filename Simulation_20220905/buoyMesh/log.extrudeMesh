@@ -1,0 +1,48 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2012                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _7bdb509494-20201222 OPENFOAM=2012
+Arch   : "LSB;label=32;scalar=64"
+Exec   : extrudeMesh
+Date   : Sep 05 2022
+Time   : 10:04:48
+Host   : LAPTOP-LH2IO11Q
+PID    : 2467
+I/O    : uncollated
+Case   : /home/zhuyin/Simulation_20220905/buoyMesh
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Selecting extrudeModel linearNormal
+Selected extrudeModel for linearNormal using coeffs 
+{
+    thickness       0.01;
+}
+
+Extruding from patch using model linearNormal
+Not collapsing any edges after extrusion
+
+Extruding patches 1(frontOld) on mesh "/home/zhuyin/Simulation_20220905/buoyMesh"
+
+Create mesh for time = 0
+
+Adding overall 0 processor patches.
+Mesh bounding box : (-0.5 0.2 -0.44) (0.500297827457 0.21 0.550099692747)
+        with span : (1.00029782746 0.01 0.990099692747)
+Merge distance    : 0
+
+Writing mesh to "/home/zhuyin/Simulation_20220905/buoyMesh/constant/region0"
+
+End
+

@@ -1,0 +1,26 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+
+##################################################################################
+############            BUOY IN WAVES TUTORIAL BY CFD-TRAINING        ############
+############                      www.cfd-training.com                ############
+##################################################################################
+
+echo "START mesh generation and case preparation....."
+
+./generateMesh
+
+echo "END mesh generation and case preparation....."
+
+echo "START Processing ....."
+
+echo "-----> Decompose case on 4 cores"
+(cd backgroundAndBuoy && decomposePar -force > log.decomposePar)
+echo "-----> RenumberMesh for parallelisation optimization "
+(cd backgroundAndBuoy && mpirun -np 4 renumberMesh -parallel -overwrite > log.renumberMesh)
+(echo "-----> Run de solver overInterDyMFoam on 4 cores the :" && date)
+(cd backgroundAndBuoy && mpirun -np 4 overInterDyMFoam -parallel > log.overInterDyMFoam)
+(echo "-----> End of solver calculation the :" && date)
+
+echo "END Processing ....."
+#------------------------------------------------------------------------------

@@ -1,0 +1,171 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1812                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+castellatedMesh true;
+snap            true;
+addLayers       true;
+
+geometry
+{
+    refinementBox1
+    {
+        type    searchableBox;
+        min     (-20.0 -0.5 -2);
+        max     ( 20.0 0.5 2);
+    }
+    refinementBox2
+    {
+        type    searchableBox;
+        min     (-20.0 -0.5 -1.5);
+        max     ( 20.0 0.5 1.5);
+    }
+    refinementBox3
+    {
+        type    searchableBox;
+        min     (-20.0 -0.5 -1);
+        max     ( 20.0 0.5 1);
+    }
+
+    refinementBox4
+    {
+        type    searchableBox;
+        min     (-1 -1 -10);
+        max     ( 1  1  10);
+    }
+}
+
+// Settings for the castellatedMesh generation.
+castellatedMeshControls
+{
+
+    maxLocalCells 100000;
+    maxGlobalCells 2000000;
+    minRefinementCells 100;
+    nCellsBetweenLevels 3;
+
+    // Explicit feature edge refinement
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    features ();
+
+    // Surface based refinement
+    // ~~~~~~~~~~~~~~~~~~~~~~~~
+    refinementSurfaces
+    {
+
+    }
+
+    // Resolve sharp angles on fridges
+    resolveFeatureAngle 30;
+
+    // Region-wise refinement
+    // ~~~~~~~~~~~~~~~~~~~~~~
+    refinementRegions
+    {
+        refinementBox1
+        {
+            mode inside;
+            levels ((1e15 2));
+        }
+        refinementBox2
+        {
+            mode inside;
+            levels ((1e15 3));
+        }
+        refinementBox3
+        {
+            mode inside;
+            levels      ((10000 0));
+            levelIncrement  (0 4 (0 0 2));
+        }
+        refinementBox4
+        {
+            mode inside;
+            levels      ((10000 0));
+            levelIncrement  (0 4 (2 0 0));
+        }
+    }
+
+    // Mesh selection
+    // ~~~~~~~~~~~~~~
+    locationInMesh (0 0 0);
+
+    allowFreeStandingZoneFaces true;
+}
+
+// Settings for snapping.
+snapControls
+{
+
+    nSmoothPatch 3;
+    tolerance 1.0;
+    nSolveIter 300;
+    nRelaxIter 5;
+}
+
+// Settings for the layer addition.
+addLayersControls
+{
+    relativeSizes true;
+    layers
+    {
+    }
+
+    expansionRatio 1.1;
+    finalLayerThickness 0.2;
+    minThickness 0.0001;
+    nGrow 0;
+    featureAngle 175;
+
+    nRelaxIter 5;
+    nSmoothSurfaceNormals 1;
+    nSmoothNormals 3;
+    nSmoothThickness 10;
+    maxFaceThicknessRatio 0.5;
+    maxThicknessToMedialRatio 0.3;
+    minMedialAxisAngle 90;
+    nBufferCellsNoExtrude 0;
+    nLayerIter 50;
+}
+
+// Generic mesh quality settings. At any undoable phase these determine
+// where to undo.
+meshQualityControls
+{
+    maxNonOrtho 65;
+    maxBoundarySkewness 20;
+    maxInternalSkewness 4;
+    maxConcave 80;
+    minVol 1e-13;
+    minTetQuality 1e-30;
+    minArea -1;
+    minTwist 0.05;
+    minDeterminant 0.001;
+    minFaceWeight 0.05;
+    minVolRatio 0.01;
+    minTriangleTwist -1;
+
+
+    // Advanced
+    nSmoothScale 4;
+    errorReduction 0.75;
+}
+
+
+// Advanced
+mergeTolerance 1e-6;
+
+
+// ************************************************************************* //
